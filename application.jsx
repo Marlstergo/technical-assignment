@@ -14,10 +14,11 @@ const Application = () => {
   const [hasGuessed, setHasGuessed] = useState(false);
   const [isWinner, setIsWinner] = useState(false);
 
+  // alternative solution, no dependency needed since reset color button has a fuction to reset color. so we can just call this once on first load of page.
   // useEffect(() => {
-  //   setCorrectAnswer(generateRandomColor());
+  // const newAnswer = generateRandomColor()
+  //   setCorrectAnswer(newAnswer);
   // }, [])
-  
 
   useEffect(() => {
     if (hasGuessed) {
@@ -25,9 +26,9 @@ const Application = () => {
         setIsWinner(true);
       }
     }
-    console.log('eff')
+    console.log('eff');
   }, [hasGuessed, correctAnswer]);
-  console.log('hi')
+  console.log('hi');
   return (
     <main className="mx-auto my-8 flex w-96 flex-col gap-8">
       <ColorSwatch color={correctAnswer} />
